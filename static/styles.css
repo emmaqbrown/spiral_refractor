@@ -1,0 +1,196 @@
+ body, html, canvas { 
+    margin: 0; overflow: hidden; background: #fffdfc; 
+    font-family: 'Georgia', serif; cursor: none !important; 
+}
+
+
+h1{
+    font-weight: 600;
+    color: rgb(55, 88, 120);
+    line-height: 0.5em;
+}
+
+h2{
+    color: rgb(55, 88, 120);
+    line-height: 0.5em;
+    font-weight: 500;
+}
+
+.description{
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid rgb(55, 88, 120);
+  margin: 15px 0;  /* Add explicit margins */
+  width: 30%;
+  color: rgb(55, 88, 120);
+  
+}
+
+.button{
+    cursor: pointer; 
+    background: rgb(55, 88, 120); 
+    padding: 15px; 
+    border-radius: 5px; 
+    display: inline-block;
+    font-size: .8rem;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.button:hover{
+    background: rgb(43, 67, 92); 
+}
+
+#color-selectors {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+/* The circular watercolor "pan" */
+.color-well {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #545454;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1), inset 0 0 10px rgba(0,0,0,0.05);
+    display: inline-block;
+    transition: transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.color-well:hover {
+    transform: scale(1.15);
+}
+
+/* Hide the actual browser color picker box */
+.spiral-color {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* This makes the color fill the circle on modern browsers */
+.spiral-color::-webkit-color-swatch-wrapper { padding: 0; }
+.spiral-color::-webkit-color-swatch { border: none; border-radius: 50%; }
+
+/* Fake Cursor */
+#fake-cursor {
+    position: fixed; width: 14px; height: 14px;
+    background: rgba(105, 107, 109, 0.6); border-radius: 50%;
+    pointer-events: none; z-index: 1000;
+    transform: translate(-50%, -50%);
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Initial Instructions */
+#instructions {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(255, 253, 252, 0.9); z-index: 2000;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    color: #444; 
+    transition: opacity 0.8s;
+    color: rgb(55, 88, 120);
+
+}
+
+#lock-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(4px);
+    z-index: 90; display: none;
+}
+
+.floating-word {
+    position: absolute; 
+    pointer-events: none; 
+    z-index: 10;
+    color: rgba(87, 87, 87, 0.7); 
+    font-size: 1.4rem;
+    white-space: nowrap; 
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+    transform: translate(-50%, -50%); 
+    font-family: 'Georgia';
+}
+
+#input-container {
+    position: fixed; 
+    top: 50%; left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 100; 
+    background: white; 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
+    display: none; 
+    text-align: center;
+    font-family: 'Georgia';
+}
+
+input { 
+    border: 1px solid #ddd; 
+    padding: 12px; 
+    border-radius: 8px; 
+    font-size: 1.1rem; 
+    outline: none; 
+    width: 220px; 
+    font-family: 'Georgia'; }
+    
+button {
+    cursor: pointer; 
+    background: #5a9; 
+    color: white; 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    margin-left: 8px; font-family: 'Georgia'; 
+}
+
+
+#save{
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; 
+    opacity: 40%;
+}
+
+img{    
+    width: 4%;
+}
+
+img:hover{
+    opacity: 80%;
+}
+
+#back{
+    position: fixed; 
+    top: 20px; 
+    left: 20px; 
+    z-index: 100; 
+    color: black; 
+    text-decoration: none; 
+    font-family: sans-serif; 
+    opacity: 0.5;
+}

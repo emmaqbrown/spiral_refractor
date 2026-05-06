@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORLD 4828 -The Spiral Refractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div id="instructions">
+        <h1>ORLD 4828 Transformative Learning: The Spiral Refractor</h1>
+        <h2>Emma Brown</h2>
+        <hr>
+        <div class="description">
+            <p>
+                My primary takeaway from this course will be the power of reflection.
+                The power of taking time to look at moments in your life through a different lens 
+                and how that refracting and revising of information can lead to self-discovery.</p>
+            <p>
+                When thinking of a visualization of that theme, my mind went to a spiral. A spiral
+                because of how it returns to a similar location, but from a different plane after 
+                period of travel. It seems to be quite an apt metaphor for reflection. After a recent
+                experience with watercolor painting, I realized it evokes a similar symbolic experience. 
+                The way watercolor requires careful layering, but even so the colors bleed. They
+                blend and create new, imperfect colors. So, I created a digital representation of that idea! 
+            </p>
+
+            <b>Click each circle and choose 4 colors to represent areas of your life:</b>
+            <div id="color-selectors">
+                <label class="color-well">
+                    <input type="color" class="spiral-color" value="#bab6b6">
+                </label>
+                <label class="color-well">
+                    <input type="color" class="spiral-color" value="#787878">
+                </label>
+                <label class="color-well">
+                    <input type="color" class="spiral-color" value="#3d3d3d">
+                </label>
+                <label class="color-well">
+                    <input type="color" class="spiral-color" value="#000000">
+                </label>
+            </div>
+
+            <p>
+                As you move your cursor around the screen, you view the colored spirals through a refracted lens. 
+                Take a moment to think about the corresponding themes in your life are intertwined. Then click
+                on the spot with your cursor, and add a reflection or a thought. Each time you return to the site, the spirals shift 
+                and the thoughts reset.
+            </p>
+
+
+                    
+        </div>
+        <p class="button">
+            Click to Begin
+        </p>
+    </div>
+
+    <div id="fake-cursor"></div>
+    <div id="lock-overlay"></div>
+
+    <div id="input-container">
+        <input type="text" id="word-input" placeholder="Enter a thought..." autocomplete="off">
+        <button id="submit-word">Add</button>
+    </div>
+
+    <img id="save" src="{{ url_for('static', filename='images/save.png') }}">
+
+        
+    <script type="importmap">
+        { "imports": { "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js" } }
+    </script>
+
+    <script type="module" src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>

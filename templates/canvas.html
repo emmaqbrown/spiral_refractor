@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiral Reflector - View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div id="fake-cursor"></div>
+    <a href="/" id="back">← Back</a>
+
+    <p id="save">Canvas ID: {{canvas_id}}</p>
+
+    <script type="importmap">
+        { "imports": { "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js" } }
+    </script>
+
+    <script>
+        // 1. Data injected from Flask
+        const SPIRAL_DATA = {{ saved_shapes|tojson }};
+        const savedThoughts = {{ saved_thoughts|tojson }};
+    </script>
+
+    <script type="module" src="{{ url_for('static', filename='js/canvas.js') }}"></script>
+
+</body>
+</html>
